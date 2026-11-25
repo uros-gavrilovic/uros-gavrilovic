@@ -1,0 +1,28 @@
+// --from / --to are set on the host element from the component's inputs (see wave.ts).
+:host {
+	display: block;
+	position: relative;
+	z-index: 1;
+	margin-bottom: -1px;
+	background: var(--from);
+	line-height: 0;
+}
+
+:host(.flip) svg {
+	transform: scaleX(-1);
+}
+
+svg {
+	width: 100%;
+	height: clamp(3rem, 7vw, 6.5rem);
+	overflow: visible;
+}
+
+.back {
+	fill: var(--to);
+	opacity: 0.45;
+}
+
+.front {
+	fill: var(--to);
+}
