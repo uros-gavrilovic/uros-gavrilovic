@@ -1,0 +1,10 @@
+# IDEs / editors
+.idea/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
