@@ -1,0 +1,28 @@
+<section id="stack" class="section stack" aria-labelledby="stack-title">
+	<div class="container">
+		<header class="section-head reveal">
+			<p class="eyebrow">02 · Tech stack</p>
+			<h2 id="stack-title" class="section-title">Tools I build with</h2>
+			<p class="section-lead">
+				From back-end services and message queues to web and mobile front ends: the languages,
+				frameworks and tools I reach for most.
+			</p>
+		</header>
+
+		<div class="stack__grid">
+			@for (group of groups; track group.title) {
+				<article class="group reveal">
+					<h3 class="group__title">
+						{{ group.title }}
+						<span class="group__count">{{ group.skills.length }}</span>
+					</h3>
+					<ul class="chips">
+						@for (skill of group.skills; track skill) {
+							<li class="chip">{{ skill }}</li>
+						}
+					</ul>
+				</article>
+			}
+		</div>
+	</div>
+</section>

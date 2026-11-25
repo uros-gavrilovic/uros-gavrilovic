@@ -1,0 +1,82 @@
+<section class="hero" aria-labelledby="hero-title">
+	<div class="container hero__inner">
+		<div class="hero__copy">
+			<p class="hero__badge">
+				<span class="hero__dot" aria-hidden="true"></span>
+				{{ profile.role }}
+			</p>
+
+			<h1 id="hero-title" class="hero__title">
+				<span>{{ profile.firstName }}</span>
+				<span class="accent">{{ profile.lastName }}</span>
+			</h1>
+
+			<p class="hero__intro">{{ profile.intro }}</p>
+
+			<div class="hero__actions">
+				<a class="btn btn-primary" href="#projects">
+					View projects
+					<app-icon class="shift" name="arrow-right" />
+				</a>
+				<a class="btn btn-ghost" href="#contact">Get in touch</a>
+			</div>
+
+			<ul class="hero__social" aria-label="Find me online">
+				@for (link of socials; track link.href) {
+					<li>
+						<a
+							class="icon-link"
+							[href]="link.href"
+							[attr.aria-label]="link.label"
+							[attr.target]="link.icon === 'mail' ? null : '_blank'"
+							rel="noopener noreferrer"
+						>
+							<app-icon [name]="link.icon" />
+						</a>
+					</li>
+				}
+			</ul>
+		</div>
+
+		<!-- A little "milky matcha" camo landscape inside a morphing blob. -->
+		<div class="hero__art" aria-hidden="true">
+			<div class="hero__blob">
+				<svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" focusable="false">
+					<rect class="fill-cream" width="400" height="400" />
+					<path
+						class="fill-sage-200"
+						d="M0 168C40 150 84 138 128 150S196 188 244 184 318 146 362 142C382 140 394 146 400 150V400H0Z"
+					/>
+					<path
+						class="fill-sage-300"
+						d="M0 232C34 214 70 206 104 224S156 268 196 262 252 222 290 220 352 244 400 236V400H0Z"
+					/>
+					<path
+						class="fill-olive"
+						d="M86 262C92 250 110 248 120 256S144 260 148 272 136 290 124 286 98 290 90 282 82 270 86 262Z"
+					/>
+					<path
+						class="fill-matcha"
+						d="M0 276C26 262 54 268 72 286S120 310 142 292 170 246 202 248 240 284 268 296 330 290 352 272C374 254 390 258 400 262V400H0Z"
+					/>
+					<path
+						class="fill-sage-200"
+						d="M214 312C220 300 238 298 248 306S270 306 274 318 262 336 250 332 228 338 220 330 210 320 214 312Z"
+					/>
+					<path
+						class="fill-olive"
+						d="M0 326C22 312 50 316 66 332S110 352 130 336 162 300 194 304 232 338 262 346 318 332 342 324C366 316 388 322 400 328V400H0Z"
+					/>
+					<path
+						class="fill-forest"
+						d="M170 400C172 372 196 352 226 350S272 330 300 314C328 298 356 300 372 318S400 352 400 366V400Z"
+					/>
+					<path
+						class="fill-cream"
+						d="M232 364C236 354 252 350 262 356S278 358 280 368 270 382 260 380 240 384 234 376 228 372 232 364Z"
+					/>
+				</svg>
+			</div>
+		</div>
+	</div>
+</section>

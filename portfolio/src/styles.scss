@@ -1,1 +1,300 @@
-/* You can add global styles to this file, and also import other style files */
+// Self-hosted variable fonts: Fraunces (with its "soft" axis) for headings, DM Sans for text.
+@use '@fontsource-variable/fraunces/soft';
+@use '@fontsource-variable/dm-sans';
+
+// Milky matcha palette, light to dark. The page gets darker as you scroll down it.
+:root {
+	--milk: #f3f0ea;
+	--cream: #e2ddd7;
+	--sage-100: #e3e5d8;
+	--sage-200: #cacdba;
+	--sage-300: #a9ae90;
+	--matcha: #7f8962;
+	--olive: #4b5732;
+	--forest: #343a28;
+	--deep: #23261d;
+
+	--ink: var(--deep);
+	--ink-muted: #4d5340;
+
+	--font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+	--font-body: 'DM Sans Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+	--header-h: 4.5rem;
+	--gutter: clamp(1.25rem, 5vw, 3rem);
+	--ease: cubic-bezier(0.22, 0.7, 0.2, 1);
+	--shadow: 0 1px 2px rgb(35 38 29 / 0.06), 0 14px 34px -14px rgb(35 38 29 / 0.25);
+	--shadow-lg: 0 2px 4px rgb(35 38 29 / 0.06), 0 28px 56px -20px rgb(35 38 29 / 0.38);
+}
+
+// ---------------------------------------------------------------- base
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	color-scheme: light;
+	scroll-behavior: smooth;
+	scroll-padding-top: var(--header-h);
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	min-width: 20rem;
+	font-family: var(--font-body);
+	font-size: 1.0625rem;
+	line-height: 1.65;
+	color: var(--ink);
+	background: var(--milk);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: 600;
+	font-variation-settings: 'SOFT' 100;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	text-wrap: balance;
+}
+
+p {
+	margin: 0;
+	text-wrap: pretty;
+}
+
+a {
+	color: inherit;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+::selection {
+	background: var(--sage-300);
+	color: var(--deep);
+}
+
+:focus-visible {
+	outline: 3px solid var(--olive);
+	outline-offset: 3px;
+	border-radius: 0.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+// ---------------------------------------------------------------- layout
+
+.container {
+	width: min(100% - 2 * var(--gutter), 72rem);
+	margin-inline: auto;
+}
+
+.section {
+	padding-block: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+.section-head {
+	max-width: 44rem;
+}
+
+.eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.75rem;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--eyebrow, var(--olive));
+
+	&::before {
+		content: '';
+		width: 2rem;
+		height: 2px;
+		border-radius: 2px;
+		background: currentColor;
+	}
+}
+
+.section-title {
+	margin-block: 1rem 1.25rem;
+	font-size: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.section-lead {
+	font-size: 1.125rem;
+	color: var(--lead, var(--ink-muted));
+}
+
+.accent {
+	color: var(--olive);
+}
+
+.skip-link {
+	position: fixed;
+	top: 0.75rem;
+	left: 0.75rem;
+	z-index: 100;
+	padding: 0.75rem 1.25rem;
+	border-radius: 999px;
+	background: var(--forest);
+	color: var(--milk);
+	font-weight: 600;
+	text-decoration: none;
+	transform: translateY(-200%);
+
+	&:focus {
+		transform: none;
+	}
+}
+
+// ---------------------------------------------------------------- buttons & links
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+	padding: 0.95rem 1.6rem;
+	border: 1.5px solid transparent;
+	border-radius: 999px;
+	font: 600 1rem/1 var(--font-body);
+	text-decoration: none;
+	transition:
+		background-color 0.25s,
+		border-color 0.25s,
+		color 0.25s,
+		transform 0.3s var(--ease);
+
+	&:hover {
+		transform: translateY(-2px);
+	}
+
+	app-icon {
+		transition: transform 0.3s var(--ease);
+	}
+
+	&:hover .shift {
+		transform: translateX(4px);
+	}
+}
+
+.btn-primary {
+	background: var(--forest);
+	color: var(--milk);
+	box-shadow: 0 12px 24px -12px rgb(35 38 29 / 0.6);
+
+	&:hover {
+		background: var(--olive);
+	}
+}
+
+.btn-ghost {
+	border-color: rgb(35 38 29 / 0.25);
+	color: var(--ink);
+
+	&:hover {
+		border-color: var(--ink);
+		background: rgb(35 38 29 / 0.04);
+	}
+}
+
+.btn-light {
+	background: var(--milk);
+	color: var(--forest);
+
+	&:hover {
+		background: var(--sage-200);
+	}
+}
+
+.btn-outline-light {
+	border-color: rgb(243 240 234 / 0.35);
+	color: var(--milk);
+
+	&:hover {
+		border-color: var(--milk);
+		background: rgb(243 240 234 / 0.06);
+	}
+}
+
+.icon-link {
+	display: grid;
+	place-items: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border: 1px solid rgb(35 38 29 / 0.14);
+	border-radius: 50%;
+	color: var(--ink-muted);
+	transition:
+		background-color 0.25s,
+		border-color 0.25s,
+		color 0.25s,
+		transform 0.3s var(--ease);
+
+	&:hover {
+		border-color: var(--forest);
+		background: var(--forest);
+		color: var(--milk);
+		transform: translateY(-2px);
+	}
+}
+
+// ---------------------------------------------------------------- decoration
+
+// Fill colours for the camo / wave SVG artwork.
+@each $tone in 'cream', 'sage-100', 'sage-200', 'sage-300', 'matcha', 'olive', 'forest', 'deep' {
+	.fill-#{$tone} {
+		fill: var(--#{$tone});
+	}
+}
+
+// Scroll-linked fade-in where the browser supports it (pure CSS; no-op elsewhere).
+// The range ends once an element has fully scrolled into view, so content at the very
+// bottom of the page is always fully shown, even on tall screens.
+@supports (animation-timeline: view()) {
+	@media (prefers-reduced-motion: no-preference) {
+		.reveal {
+			animation: reveal linear both;
+			animation-timeline: view();
+			animation-range: entry 0% entry 90%;
+		}
+	}
+}
+
+@keyframes reveal {
+	from {
+		opacity: 0;
+		translate: 0 2rem;
+	}
+}

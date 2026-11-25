@@ -1,0 +1,43 @@
+:host {
+	display: block;
+}
+
+.contact {
+	--eyebrow: var(--sage-200);
+	background: var(--forest);
+	color: var(--milk);
+}
+
+.contact__camo {
+	width: 100%;
+	height: clamp(9rem, 24vw, 24rem);
+	margin-bottom: -1px;
+	background: var(--sage-300);
+}
+
+.contact__inner {
+	display: grid;
+	justify-items: center;
+	padding-block: clamp(2rem, 5vw, 3.5rem) clamp(5rem, 10vw, 8rem);
+	text-align: center;
+}
+
+.contact__title {
+	margin-block: 1rem 1.25rem;
+	font-size: clamp(2.75rem, 8vw, 5.5rem);
+	letter-spacing: -0.035em;
+}
+
+.contact__text {
+	max-width: 34rem;
+	font-size: 1.125rem;
+	color: var(--sage-200);
+}
+
+.contact__actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.75rem;
+	margin-top: 2.5rem;
+}

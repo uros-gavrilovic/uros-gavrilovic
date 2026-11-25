@@ -1,0 +1,138 @@
+:host {
+	display: block;
+}
+
+.hero {
+	padding-block: calc(var(--header-h) + clamp(2.5rem, 7vh, 5.5rem)) clamp(1.5rem, 4vh, 3rem);
+	background:
+		radial-gradient(ellipse 55rem 38rem at 88% 18%, var(--sage-100), transparent 62%), var(--milk);
+}
+
+.hero__inner {
+	display: grid;
+	align-items: center;
+	gap: clamp(3rem, 6vw, 4rem);
+	min-height: min(calc(100svh - var(--header-h) - 10rem), 40rem);
+}
+
+@media (min-width: 56rem) {
+	.hero__inner {
+		grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+	}
+}
+
+.hero__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.65rem;
+	padding: 0.45rem 1rem 0.45rem 0.85rem;
+	border: 1px solid rgb(35 38 29 / 0.1);
+	border-radius: 999px;
+	background: rgb(255 255 255 / 0.5);
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--ink-muted);
+}
+
+.hero__dot {
+	width: 0.55rem;
+	height: 0.55rem;
+	border-radius: 50%;
+	background: var(--matcha);
+	animation: pulse 2.4s ease-out infinite;
+}
+
+.hero__title {
+	margin-block: 1.5rem 1.25rem;
+	font-size: clamp(3.25rem, 9vw, 6.25rem);
+	line-height: 0.98;
+	letter-spacing: -0.035em;
+
+	span {
+		display: block;
+	}
+}
+
+.hero__intro {
+	max-width: 34rem;
+	font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+	color: var(--ink-muted);
+}
+
+.hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 2.25rem;
+}
+
+.hero__social {
+	display: flex;
+	gap: 0.6rem;
+	margin-top: 2rem;
+}
+
+.hero__art {
+	position: relative;
+	justify-self: center;
+	width: min(100%, 25rem);
+	aspect-ratio: 1;
+	animation: float 9s ease-in-out infinite;
+
+	// Thin outline blob peeking out behind the artwork.
+	&::before {
+		content: '';
+		position: absolute;
+		inset: -5% -6% -2% -3%;
+		border: 2px solid var(--sage-300);
+		border-radius: 44% 56% 58% 42% / 55% 45% 55% 45%;
+		animation: morph 16s ease-in-out infinite alternate-reverse;
+	}
+}
+
+.hero__blob {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	border-radius: 62% 38% 46% 54% / 48% 56% 44% 52%;
+	box-shadow: var(--shadow-lg);
+	animation: morph 14s ease-in-out infinite alternate;
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+@media (max-width: 55.99rem) {
+	.hero__art {
+		width: min(80%, 20rem);
+	}
+}
+
+@keyframes morph {
+	50% {
+		border-radius: 45% 55% 60% 40% / 55% 42% 58% 45%;
+	}
+
+	100% {
+		border-radius: 54% 46% 38% 62% / 40% 58% 42% 60%;
+	}
+}
+
+@keyframes float {
+	50% {
+		translate: 0 -0.75rem;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgb(127 137 98 / 0.55);
+	}
+
+	70%,
+	100% {
+		box-shadow: 0 0 0 0.55rem rgb(127 137 98 / 0);
+	}
+}

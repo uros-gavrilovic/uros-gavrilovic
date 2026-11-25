@@ -1,0 +1,36 @@
+<section id="about" class="section about" aria-labelledby="about-title">
+	<div class="container about__grid">
+		<div class="reveal">
+			<p class="eyebrow">01 · About</p>
+			<h2 id="about-title" class="section-title">
+				Detail-driven developer <span class="accent">who loves to tinker.</span>
+			</h2>
+			@for (paragraph of profile.about; track $index) {
+				<p class="about__text">{{ paragraph }}</p>
+			}
+		</div>
+
+		<aside class="about__card reveal" aria-labelledby="glance-title">
+			<h3 id="glance-title" class="about__card-title">At a glance</h3>
+			<ul class="facts">
+				@for (fact of profile.facts; track fact.label) {
+					<li class="fact">
+						<span class="fact__icon"><app-icon [name]="fact.icon" /></span>
+						<div>
+							<p class="fact__label">{{ fact.label }}</p>
+							<p class="fact__value">
+								@if (fact.href) {
+									<a [href]="fact.href" target="_blank" rel="noopener noreferrer">{{
+										fact.value
+									}}</a>
+								} @else {
+									{{ fact.value }}
+								}
+							</p>
+						</div>
+					</li>
+				}
+			</ul>
+		</aside>
+	</div>
+</section>

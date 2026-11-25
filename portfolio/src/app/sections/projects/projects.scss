@@ -1,0 +1,149 @@
+:host {
+	display: block;
+}
+
+.projects {
+	--eyebrow: var(--forest);
+	--lead: var(--ink);
+	background: var(--sage-300);
+}
+
+.projects__grid {
+	display: grid;
+	gap: 1.5rem;
+	margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+@media (min-width: 48rem) {
+	.projects__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: clamp(1.5rem, 3vw, 2rem);
+	border-radius: 1.5rem;
+	background: var(--milk);
+	box-shadow: var(--shadow);
+	transition:
+		transform 0.35s var(--ease),
+		box-shadow 0.35s var(--ease);
+
+	&:hover {
+		transform: translateY(-6px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	// The whole card is clickable (see .card__title a::after), so show focus on the card.
+	&:has(a:focus-visible) {
+		outline: 3px solid var(--forest);
+		outline-offset: 4px;
+	}
+
+	&[data-tone='0'] {
+		--tone-bg: var(--sage-200);
+		--tone-fg: var(--forest);
+	}
+
+	&[data-tone='1'] {
+		--tone-bg: var(--sage-300);
+		--tone-fg: var(--deep);
+	}
+
+	&[data-tone='2'] {
+		--tone-bg: var(--matcha);
+		--tone-fg: var(--milk);
+	}
+
+	&[data-tone='3'] {
+		--tone-bg: var(--forest);
+		--tone-fg: var(--milk);
+	}
+}
+
+.card__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 0.25rem;
+}
+
+.card__icon {
+	display: grid;
+	place-items: center;
+	width: 3.25rem;
+	height: 3.25rem;
+	border-radius: 1rem;
+	background: var(--tone-bg);
+	color: var(--tone-fg);
+	font-size: 1.2rem;
+}
+
+.card__index {
+	font-family: var(--font-display);
+	font-size: 1.5rem;
+	font-weight: 600;
+	font-variation-settings: 'SOFT' 100;
+	color: var(--sage-300);
+}
+
+.card__title {
+	font-size: 1.625rem;
+
+	a {
+		text-decoration: none;
+
+		&:focus-visible {
+			outline: none;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			border-radius: inherit;
+		}
+	}
+}
+
+.card__desc {
+	color: var(--ink-muted);
+}
+
+.card__tech {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+
+	li {
+		padding: 0.25rem 0.7rem;
+		border-radius: 999px;
+		background: var(--sage-100);
+		font-size: 0.8125rem;
+		font-weight: 500;
+		color: var(--ink-muted);
+	}
+}
+
+.card__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin-top: auto;
+	padding-top: 0.5rem;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--olive);
+
+	app-icon {
+		transition: transform 0.3s var(--ease);
+	}
+}
+
+.card:hover .card__link app-icon {
+	transform: translate(3px, -3px);
+}

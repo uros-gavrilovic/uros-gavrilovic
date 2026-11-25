@@ -1,0 +1,44 @@
+<section id="projects" class="section projects" aria-labelledby="projects-title">
+	<div class="container">
+		<header class="section-head reveal">
+			<p class="eyebrow">03 · Projects</p>
+			<h2 id="projects-title" class="section-title">Things I’ve built</h2>
+			<p class="section-lead">
+				A few favourite side projects, built outside of work out of pure curiosity: from
+				microservices to graph algorithms.
+			</p>
+		</header>
+
+		<ul class="projects__grid">
+			@for (project of projects; track project.name; let i = $index) {
+				<!-- Badge colour steps from light to dark sage across the cards. -->
+				<li class="card reveal" [attr.data-tone]="i % 4">
+					<div class="card__top">
+						<span class="card__icon"><app-icon [name]="project.icon" /></span>
+						<span class="card__index" aria-hidden="true">{{
+							(i + 1).toString().padStart(2, '0')
+						}}</span>
+					</div>
+
+					<h3 class="card__title">
+						<a [href]="project.href" target="_blank" rel="noopener noreferrer">{{
+							project.name
+						}}</a>
+					</h3>
+					<p class="card__desc">{{ project.description }}</p>
+
+					<ul class="card__tech" aria-label="Built with">
+						@for (tech of project.tech; track tech) {
+							<li>{{ tech }}</li>
+						}
+					</ul>
+
+					<span class="card__link" aria-hidden="true">
+						View on GitHub
+						<app-icon name="arrow-up-right" />
+					</span>
+				</li>
+			}
+		</ul>
+	</div>
+</section>
