@@ -2,6 +2,9 @@ import { definePreset } from '@primeuix/themes';
 import base from '@primeuix/themes/aura/base';
 import dialog from '@primeuix/themes/aura/dialog';
 
+/** Space around the dialog's edges, and between its content and the footer. */
+const dialogPadding = 'clamp(1.25rem, 3vw, 1.75rem)';
+
 /**
  * PrimeNG's Aura theme in the site's milky matcha colours, from the variables in styles.scss.
  *
@@ -29,14 +32,16 @@ export const MatchaPreset = definePreset(
 					shadow: 'var(--shadow-lg)',
 				},
 				header: {
-					padding: 'clamp(1.25rem, 3vw, 1.75rem)',
+					padding: dialogPadding,
 					gap: '1rem',
 				},
+				// The content pads its own bottom so the dialog still ends with a margin when a project
+				// has no footer (no repository link); the footer then needs no top padding of its own.
 				content: {
-					padding: '0 clamp(1.25rem, 3vw, 1.75rem)',
+					padding: `0 ${dialogPadding} ${dialogPadding}`,
 				},
 				footer: {
-					padding: 'clamp(1.25rem, 3vw, 1.75rem)',
+					padding: `0 ${dialogPadding} ${dialogPadding}`,
 					gap: '0.75rem',
 				},
 			},

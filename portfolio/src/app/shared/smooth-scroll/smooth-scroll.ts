@@ -27,8 +27,10 @@ export class SmoothScroll {
 	start(): void {
 		if (this.lenis || !this.document.defaultView) return;
 		this.lenis = new Lenis({
-			// Lower is silkier: each frame closes this fraction of the gap to the target.
-			lerp: 0.08,
+			// Each frame closes this fraction of the gap to the target. 0.15 answers a wheel notch in
+			// under 0.3 s; lower values glide longer but feel laggy and end with a slow 1 px creep
+			// (0.08 took 0.5 s and crept for 0.7 s). Try 0.12 for a little more glide.
+			lerp: 0.15,
 			wheelMultiplier: 0.9,
 			autoRaf: true,
 			// While paused, wheel and touch input is left to the browser.

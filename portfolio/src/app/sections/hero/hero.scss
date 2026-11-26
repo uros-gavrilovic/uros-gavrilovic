@@ -42,11 +42,22 @@
 }
 
 .hero__dot {
+	position: relative;
 	width: 0.55rem;
 	height: 0.55rem;
 	border-radius: 50%;
 	background: var(--matcha);
-	animation: pulse 2.4s ease-out infinite;
+
+	// The pulse is a copy of the dot that grows and fades. Unlike an animated box-shadow,
+	// transform and opacity run on the compositor, so the page isn't repainted every frame.
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		background: inherit;
+		animation: pulse 2.4s ease-out infinite;
+	}
 }
 
 .hero__title {
@@ -140,11 +151,13 @@
 
 @keyframes pulse {
 	0% {
-		box-shadow: 0 0 0 0 rgb(127 137 98 / 0.55);
+		opacity: 0.55;
+		transform: scale(1);
 	}
 
 	70%,
 	100% {
-		box-shadow: 0 0 0 0.55rem rgb(127 137 98 / 0);
+		opacity: 0;
+		transform: scale(3);
 	}
 }

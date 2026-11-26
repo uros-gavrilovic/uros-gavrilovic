@@ -29,26 +29,35 @@ export const PROJECTS: readonly Project[] = [
 		shortDescription:
 			'Dijkstra-based route finder between cities, weighing distance against danger and resource cost, with a graph database behind it.',
 		longDescription: [
-			'WajFinder finds routes between cities with Dijkstra’s algorithm. Instead of looking at distance alone, it weighs each route against how dangerous it is and how many resources it costs.',
-			'It’s written in Clojure, with the map stored as a graph in Neo4j and queried with Cypher.',
+			'WajFinder is a small utility app that finds routes between cities. It uses practice-proven popular pathfinding algorithm called Djikstra’s algorithm to find the shortest path between nodes.',
+			'It’s written in Clojure, a Java based functional programming language. It stores the nodes in a Neo4j graph database which is accessed and queried with Cypher.',
+			'Started out as an idea on finding a way how to quickly traverse my favourite game’s (DayZ) map. Since I was learning Clojure at the time and always found graph databases fascinating (although never had the actual good use-case for them until now), I figured "why not?" and decided attempt building an app that does just that!',
+			'The project could be further enhanced with algorithms (such as A*) and smarter route planning that considers available resources (proximity to water wells) and safety risk weights (bandit attacks based on the road taken).',
 		],
 		tech: ['Clojure', 'Neo4j', 'Cypher', 'Docker'],
 		icon: 'compass',
 		href: 'https://github.com/uros-gavrilovic/wajfinder',
-		gallery: PLACEHOLDER_GALLERY,
+		gallery: [
+			{ src: 'images/project/wajfinder/graph.png', alt: 'Graph' },
+			{ src: 'images/project/wajfinder/postman.png', alt: 'Postman request' },
+			{ src: 'images/project/wajfinder/shortest-path.png', alt: 'Shortest path queried' },
+		],
 	},
 	{
 		name: 'Templatron',
 		shortDescription:
-			'Lightweight microservice that generates dynamic PDF documents from templates on demand, later adopted internally for business use.',
+			'Lightweight micro-service that generates dynamic PDF documents from templates on demand, later adopted internally for business use.',
 		longDescription: [
 			'Templatron is a lightweight microservice that turns templates into dynamic PDF documents on demand.',
-			'Templates are written in Thymeleaf and rendered to PDF with wkhtmltopdf, behind a small Spring service. It started as a side project and was later adopted internally for business use.',
+			'Templates are written in Thymeleaf and rendered to PDF with wkhtmltopdf, behind a small Spring service.',
+			'While working on documentation for my faculty projects, I found myself repeatedly copying and editing almost identical Word documents. Most of them differed only in a few labels or paragraphs, so I thought: why not automate this? That idea led me to build a template generator that takes a template name and a data model and produces a ready-to-use PDF’s.',
+			'Eventually, I shared the idea with my colleagues at work. As a company developing a document management system, we immediately saw how useful it could be beyond my original use case, and the idea evolved into an internal tool for our DMS.',
 		],
-		tech: ['Spring', 'Thymeleaf', 'wkhtmltopdf'],
+		tech: ['Spring', 'Thymeleaf', 'wkhtmltopdf', 'Postman'],
 		icon: 'file-text',
-		href: 'https://github.com/uros-gavrilovic/templatron',
-		gallery: PLACEHOLDER_GALLERY,
+		gallery: [
+			{ src: 'images/project/templatron/showcase.gif', alt: 'Showcase of template generation' }
+		]
 	},
 	{
 		name: 'Hevi',
@@ -60,7 +69,7 @@ export const PROJECTS: readonly Project[] = [
 		],
 		tech: ['Spring', 'Angular', 'React Native', 'PostgreSQL', 'jOOQ', 'Flyway'],
 		icon: 'dumbbell',
-		href: 'https://github.com/uros-gavrilovic/hevi',
+		// href: 'https://github.com/uros-gavrilovic/hevi',
 		// gallery: PLACEHOLDER_GALLERY,
 	},
 ];

@@ -52,7 +52,7 @@ describe('App', () => {
 
 	it('should render every project and social link from the data file', async () => {
 		const page = await render();
-		expect(page.querySelectorAll('#project .card').length).toBe(PROJECTS.length);
+		expect(page.querySelectorAll('#projects .card').length).toBe(PROJECTS.length);
 		expect(page.querySelectorAll('.hero__social a').length).toBe(SOCIAL_LINKS.length);
 	});
 

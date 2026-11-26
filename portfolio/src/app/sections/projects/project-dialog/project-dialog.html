@@ -40,11 +40,14 @@
 		</ul>
 	</ng-template>
 
-	<ng-template #footer>
-		<a class="btn btn-primary" [href]="p.href" target="_blank" rel="noopener noreferrer">
-			<app-icon name="github" />
-			View on GitHub
-			<app-icon class="shift" name="arrow-up-right" />
-		</a>
-	</ng-template>
+	<!-- Without a footer template PrimeNG leaves out the footer box, so private projects get no empty bar. -->
+	@if (p.href) {
+		<ng-template #footer>
+			<a class="btn btn-primary" [href]="p.href" target="_blank" rel="noopener noreferrer">
+				<app-icon name="github" />
+				View on GitHub
+				<app-icon class="shift" name="arrow-up-right" />
+			</a>
+		</ng-template>
+	}
 </p-dialog>
