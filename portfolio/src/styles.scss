@@ -255,9 +255,13 @@ svg {
 	place-items: center;
 	width: 2.75rem;
 	height: 2.75rem;
+	padding: 0;
 	border: 1px solid rgb(35 38 29 / 0.14);
 	border-radius: 50%;
+	background: transparent;
 	color: var(--ink-muted);
+	font: inherit;
+	cursor: pointer;
 	transition:
 		background-color 0.25s,
 		border-color 0.25s,
@@ -273,6 +277,27 @@ svg {
 }
 
 // ---------------------------------------------------------------- decoration
+
+// Badge colours that step from light to dark sage: data-tone="0" to "3".
+[data-tone='0'] {
+	--tone-bg: var(--sage-200);
+	--tone-fg: var(--forest);
+}
+
+[data-tone='1'] {
+	--tone-bg: var(--sage-300);
+	--tone-fg: var(--deep);
+}
+
+[data-tone='2'] {
+	--tone-bg: var(--matcha);
+	--tone-fg: var(--milk);
+}
+
+[data-tone='3'] {
+	--tone-bg: var(--forest);
+	--tone-fg: var(--milk);
+}
 
 // Fill colours for the camo / wave SVG artwork.
 @each $tone in 'cream', 'sage-100', 'sage-200', 'sage-300', 'matcha', 'olive', 'forest', 'deep' {

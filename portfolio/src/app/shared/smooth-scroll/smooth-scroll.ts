@@ -18,6 +18,7 @@ const glideDuration = (distance: number) => Math.min(1.6, Math.max(0.7, 0.5 + di
 export class SmoothScroll {
 	private readonly document = inject(DOCUMENT);
 	private lenis?: Lenis;
+	private paused = false;
 
 	constructor() {
 		inject(DestroyRef).onDestroy(() => this.lenis?.destroy());
@@ -30,7 +31,18 @@ export class SmoothScroll {
 			lerp: 0.08,
 			wheelMultiplier: 0.9,
 			autoRaf: true,
+			// While paused, wheel and touch input is left to the browser.
+			virtualScroll: () => !this.paused,
 		});
+	}
+
+	/** Hands scrolling back to the browser, e.g. while a dialog is open. */
+	pause(): void {
+		this.paused = true;
+	}
+
+	resume(): void {
+		this.paused = false;
 	}
 
 	/**

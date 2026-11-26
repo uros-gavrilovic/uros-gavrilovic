@@ -38,30 +38,10 @@
 		box-shadow: var(--shadow-lg);
 	}
 
-	// The whole card is clickable (see .card__title a::after), so show focus on the card.
-	&:has(a:focus-visible) {
+	// The whole card is clickable (see .card__open::after), so show focus on the card.
+	&:has(.card__open:focus-visible) {
 		outline: 3px solid var(--forest);
 		outline-offset: 4px;
-	}
-
-	&[data-tone='0'] {
-		--tone-bg: var(--sage-200);
-		--tone-fg: var(--forest);
-	}
-
-	&[data-tone='1'] {
-		--tone-bg: var(--sage-300);
-		--tone-fg: var(--deep);
-	}
-
-	&[data-tone='2'] {
-		--tone-bg: var(--matcha);
-		--tone-fg: var(--milk);
-	}
-
-	&[data-tone='3'] {
-		--tone-bg: var(--forest);
-		--tone-fg: var(--milk);
 	}
 }
 
@@ -93,20 +73,28 @@
 
 .card__title {
 	font-size: 1.625rem;
+}
 
-	a {
-		text-decoration: none;
+// Looks like the title, but opens the project's details; its ::after covers the whole card.
+.card__open {
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	text-align: inherit;
+	cursor: pointer;
 
-		&:focus-visible {
-			outline: none;
-		}
+	&:focus-visible {
+		outline: none;
+	}
 
-		&::after {
-			content: '';
-			position: absolute;
-			inset: 0;
-			border-radius: inherit;
-		}
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
 	}
 }
 
@@ -145,5 +133,5 @@
 }
 
 .card:hover .card__link app-icon {
-	transform: translate(3px, -3px);
+	transform: translateX(4px);
 }

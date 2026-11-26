@@ -6,6 +6,8 @@ export type IconName =
 	| 'arrow-up-right'
 	| 'book-open'
 	| 'calendar'
+	| 'chevron-left'
+	| 'chevron-right'
 	| 'code'
 	| 'compass'
 	| 'dumbbell'
@@ -14,7 +16,8 @@ export type IconName =
 	| 'graduation-cap'
 	| 'linkedin'
 	| 'mail'
-	| 'users';
+	| 'users'
+	| 'x';
 
 const BRAND_ICONS: ReadonlySet<IconName> = new Set<IconName>(['github', 'linkedin']);
 

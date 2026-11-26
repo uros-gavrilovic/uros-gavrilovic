@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+	<rect width="1600" height="1000" fill="#cacdba"/>
+	<circle cx="1220" cy="300" r="110" fill="#e3e5d8"/>
+	<path fill="#a9ae90" d="M0 560C200 510 400 490 620 540S1000 640 1240 600 1500 510 1600 520V1000H0Z"/>
+	<path fill="#7f8962" d="M0 680C180 640 380 630 560 680S900 780 1120 740 1460 660 1600 690V1000H0Z"/>
+	<path fill="#4b5732" d="M0 800C220 760 420 770 640 820S1040 900 1280 860 1520 800 1600 810V1000H0Z"/>
+	<path fill="#343a28" d="M0 910C240 880 480 890 720 930S1160 990 1400 960 1560 930 1600 935V1000H0Z"/>
+	<text x="800" y="330" fill="#343a28" font-family="system-ui, sans-serif" font-size="64" font-weight="600" text-anchor="middle">Placeholder image 2</text>
+</svg>

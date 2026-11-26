@@ -1,0 +1,61 @@
+// The dialog box itself is themed through the PrimeNG preset (see primeng-preset.ts);
+// these styles cover the header, content and footer templates.
+
+.head {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	min-width: 0;
+}
+
+.head__icon {
+	display: grid;
+	flex-shrink: 0;
+	place-items: center;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1rem;
+	background: var(--tone-bg);
+	color: var(--tone-fg);
+	font-size: 1.15rem;
+}
+
+.head__title {
+	font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+// PrimeNG keeps an empty actions box at the end of the header, which would centre this button
+// between the title and that box; the auto margin pins it to the right edge.
+.close {
+	margin-left: auto;
+	font-size: 1.1rem;
+}
+
+.gallery {
+	margin-bottom: 1.5rem;
+}
+
+.text {
+	max-width: 65ch;
+	color: var(--ink-muted);
+
+	& + & {
+		margin-top: 1rem;
+	}
+}
+
+.tech {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: 1.5rem;
+
+	li {
+		padding: 0.25rem 0.7rem;
+		border-radius: 999px;
+		background: var(--sage-100);
+		font-size: 0.8125rem;
+		font-weight: 500;
+		color: var(--ink-muted);
+	}
+}

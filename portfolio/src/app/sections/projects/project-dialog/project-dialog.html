@@ -1,0 +1,50 @@
+@let p = project();
+
+<p-dialog
+	[(visible)]="visible"
+	[header]="p.name"
+	[modal]="true"
+	[closable]="false"
+	[draggable]="false"
+	[resizable]="false"
+	[blockScroll]="true"
+	[focusOnShow]="false"
+	appendTo="body"
+	[style]="{ width: 'min(52rem, calc(100vw - 2rem))' }"
+	[pt]="closeOnBackdrop"
+	(onShow)="focusCloseButton()"
+>
+	<ng-template #header let-titleId="ariaLabelledBy">
+		<div class="head">
+			<span class="head__icon" [attr.data-tone]="tone()"><app-icon [name]="p.icon" /></span>
+			<h2 class="head__title" [id]="titleId">{{ p.name }}</h2>
+		</div>
+		<button #closeButton type="button" class="icon-link close" aria-label="Close" (click)="close()">
+			<app-icon name="x" />
+		</button>
+	</ng-template>
+
+	<ng-template #content>
+		@if (p.gallery?.length) {
+			<app-gallery class="gallery" [images]="p.gallery!" [label]="'Screenshots of ' + p.name" />
+		}
+
+		@for (paragraph of p.longDescription; track $index) {
+			<p class="text">{{ paragraph }}</p>
+		}
+
+		<ul class="tech" aria-label="Built with">
+			@for (tech of p.tech; track tech) {
+				<li>{{ tech }}</li>
+			}
+		</ul>
+	</ng-template>
+
+	<ng-template #footer>
+		<a class="btn btn-primary" [href]="p.href" target="_blank" rel="noopener noreferrer">
+			<app-icon name="github" />
+			View on GitHub
+			<app-icon class="shift" name="arrow-up-right" />
+		</a>
+	</ng-template>
+</p-dialog>

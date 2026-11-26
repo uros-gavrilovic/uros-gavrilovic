@@ -4,7 +4,8 @@
 			<p class="eyebrow">03 · Projects</p>
 			<h2 id="projects-title" class="section-title">Things I’ve built</h2>
 			<p class="section-lead">
-				A few side projects born from curiosity, random ideas, and the urge to build something just for the fun of it...
+				A few side projects born from curiosity, random ideas, and the urge to build something just
+				for the fun of it...
 			</p>
 		</header>
 
@@ -19,11 +20,11 @@
 					</div>
 
 					<h3 class="card__title">
-						<a [href]="project.href" target="_blank" rel="noopener noreferrer">{{
-							project.name
-						}}</a>
+						<button type="button" class="card__open" aria-haspopup="dialog" (click)="open(i)">
+							{{ project.name }}
+						</button>
 					</h3>
-					<p class="card__desc">{{ project.description }}</p>
+					<p class="card__desc">{{ project.shortDescription }}</p>
 
 					<ul class="card__tech" aria-label="Built with">
 						@for (tech of project.tech; track tech) {
@@ -32,11 +33,20 @@
 					</ul>
 
 					<span class="card__link" aria-hidden="true">
-						View on GitHub
-						<app-icon name="arrow-up-right" />
+						Read more
+						<app-icon name="arrow-right" />
 					</span>
 				</li>
 			}
 		</ul>
 	</div>
+
+	<!-- PrimeNG's dialog code loads once the page is idle, keeping it out of the first load. -->
+	@defer (on idle) {
+		<app-project-dialog
+			[project]="projects[selected()]"
+			[tone]="selected() % 4"
+			[(visible)]="detailsOpen"
+		/>
+	}
 </section>

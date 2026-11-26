@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, DeferBlockState, TestBed } from '@angular/core/testing';
 import { App } from './app';
 import { PROJECTS } from './data/projects';
 
@@ -15,6 +15,16 @@ describe('App', () => {
 		const fixture = TestBed.createComponent(App);
 		await fixture.whenStable();
 		return fixture.nativeElement as HTMLElement;
+	}
+
+	/** Renders the page with its @defer blocks loaded, which includes the project dialog. */
+	async function renderWithDialog(): Promise<ComponentFixture<App>> {
+		const fixture = TestBed.createComponent(App);
+		await fixture.whenStable();
+		for (const block of await fixture.getDeferBlocks()) {
+			await block.render(DeferBlockState.Complete);
+		}
+		return fixture;
 	}
 
 	it('should create the app', () => {
@@ -42,7 +52,45 @@ describe('App', () => {
 
 	it('should render every project and social link from the data file', async () => {
 		const page = await render();
-		expect(page.querySelectorAll('#projects .card').length).toBe(PROJECTS.length);
+		expect(page.querySelectorAll('#project .card').length).toBe(PROJECTS.length);
 		expect(page.querySelectorAll('.hero__social a').length).toBe(SOCIAL_LINKS.length);
+	});
+
+	it("should open a project's details from its card", async () => {
+		const fixture = await renderWithDialog();
+		const project = PROJECTS[1];
+
+		const cards = fixture.nativeElement.querySelectorAll('.card__open');
+		(cards[1] as HTMLButtonElement).click();
+		await fixture.whenStable();
+
+		// The dialog is attached to <body>, outside the app's element.
+		const dialog = document.querySelector('[role="dialog"]');
+		expect(dialog, 'dialog should be open').toBeTruthy();
+		expect(dialog!.querySelector('h2')!.textContent).toContain(project.name);
+		expect(dialog!.textContent).toContain(project.longDescription[0]);
+		expect(dialog!.querySelectorAll('.slide').length).toBe(project.gallery!.length);
+		expect(dialog!.querySelector<HTMLAnchorElement>('a.btn')!.href).toBe(project.href);
+	});
+
+	it('should close the details on Esc and give focus back to the card', async () => {
+		const fixture = await renderWithDialog();
+		const card = fixture.nativeElement.querySelectorAll('.card__open')[2] as HTMLButtonElement;
+		card.focus();
+		card.click();
+		await fixture.whenStable();
+
+		// Once the dialog has opened, focus starts on its close button.
+		await vi.waitFor(() =>
+			expect(document.activeElement?.getAttribute('aria-label')).toBe('Close'),
+		);
+
+		document.activeElement!.dispatchEvent(
+			new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }),
+		);
+		await fixture.whenStable();
+
+		await vi.waitFor(() => expect(document.querySelector('[role="dialog"]')).toBeNull());
+		expect(document.activeElement).toBe(card);
 	});
 });
