@@ -16,7 +16,7 @@ export const MatchaPreset = definePreset(
 			mask: {
 				// A tint only, no backdrop blur: re-blurring the whole page on every frame made the
 				// dialog's opening and its gallery stutter.
-				background: 'rgb(35 38 29 / 0.45)',
+				background: 'rgb(35 38 29 / 0.6)',
 			},
 		},
 		components: {

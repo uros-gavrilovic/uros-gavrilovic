@@ -10,6 +10,7 @@ export type IconName =
 	| 'chevron-right'
 	| 'code'
 	| 'compass'
+	| 'download'
 	| 'dumbbell'
 	| 'file-text'
 	| 'github'

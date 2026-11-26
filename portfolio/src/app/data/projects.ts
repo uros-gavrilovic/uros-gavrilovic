@@ -1,14 +1,11 @@
 import { GalleryImage, Project } from '../model/model';
 
-// TODO: placeholders until there are real photos. Put them in public/project/<project>/ and
-// list them per project, e.g. { src: 'project/hevi/dashboard.png', alt: 'Hevi dashboard' }.
 const PLACEHOLDER_GALLERY: readonly GalleryImage[] = [
 	{ src: 'images/project/placeholder/placeholder-1.svg', alt: 'Placeholder images' },
 	{ src: 'images/project/placeholder/placeholder-2.svg', alt: 'Placeholder images' },
 	{ src: 'images/project/placeholder/placeholder-3.svg', alt: 'Placeholder images' },
 ];
 
-// TODO: the long descriptions are first drafts built from the short ones; rewrite them in your own words.
 export const PROJECTS: readonly Project[] = [
 	{
 		name: 'Faculty Flow',
@@ -22,9 +19,9 @@ export const PROJECTS: readonly Project[] = [
 		icon: 'calendar',
 		href: 'https://github.com/uros-gavrilovic/faculty-flow',
 		gallery: [
-			{ src: 'images/project/faculty-flow/calendar.png', alt: 'Placeholder images' },
-			{ src: 'images/project/faculty-flow/reservation.png', alt: 'Placeholder images' },
-			{ src: 'images/project/faculty-flow/login.png', alt: 'Placeholder images' },
+			{ src: 'images/project/faculty-flow/calendar.png', alt: 'Scheduler' },
+			{ src: 'images/project/faculty-flow/reservation.png', alt: 'Reservation request' },
+			{ src: 'images/project/faculty-flow/login.png', alt: 'Login page' },
 		],
 	},
 	{
@@ -64,6 +61,6 @@ export const PROJECTS: readonly Project[] = [
 		tech: ['Spring', 'Angular', 'React Native', 'PostgreSQL', 'jOOQ', 'Flyway'],
 		icon: 'dumbbell',
 		href: 'https://github.com/uros-gavrilovic/hevi',
-		gallery: PLACEHOLDER_GALLERY,
+		// gallery: PLACEHOLDER_GALLERY,
 	},
 ];

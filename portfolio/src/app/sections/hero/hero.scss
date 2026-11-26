@@ -21,6 +21,13 @@
 	}
 }
 
+// Side by side when they fit, stacked on narrow screens.
+.hero__badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem 0.75rem;
+}
+
 .hero__badge {
 	display: inline-flex;
 	align-items: center;
@@ -98,9 +105,14 @@
 	box-shadow: var(--shadow-lg);
 	animation: morph 14s ease-in-out infinite alternate;
 
-	svg {
+	svg,
+	img {
 		width: 100%;
 		height: 100%;
+	}
+
+	img {
+		object-fit: cover;
 	}
 }
 

@@ -1,14 +1,16 @@
 <section class="hero" aria-labelledby="hero-title">
 	<div class="container hero__inner">
 		<div class="hero__copy">
-			<p class="hero__badge">
-				<span class="hero__dot" aria-hidden="true"></span>
-				Full-Stack Software Engineer
-			</p>
-			<p class="hero__badge">
-				<span class="hero__dot" aria-hidden="true"></span>
-				Organizer & Event Cordinator
-			</p>
+			<ul class="hero__badges">
+				<li class="hero__badge">
+					<span class="hero__dot" aria-hidden="true"></span>
+					Full-Stack Software Engineer
+				</li>
+				<li class="hero__badge">
+					<span class="hero__dot" aria-hidden="true"></span>
+					Organizer &amp; Event Coordinator
+				</li>
+			</ul>
 
 			<h1 id="hero-title" class="hero__title">
 				<span>Uroš</span>
@@ -26,6 +28,10 @@
 					<app-icon class="shift" name="arrow-right" />
 				</a>
 				<a class="btn btn-ghost" href="#contact">Get in touch</a>
+				<a class="btn btn-ghost" href="cv/uros-gavrilovic.pdf" download>
+					<app-icon name="download" />
+					Download CV
+				</a>
 			</div>
 
 			<ul class="hero__social" aria-label="Find me online">
@@ -45,9 +51,20 @@
 			</ul>
 		</div>
 
-		<!-- A little "milky matcha" camo landscape inside a morphing blob. -->
-		<div class="hero__art" aria-hidden="true">
+		<div class="hero__art">
 			<div class="hero__blob">
+				<img
+					src="images/misc/uros.webp"
+					width="800"
+					height="800"
+					alt="Uroš Gavrilović"
+					fetchpriority="high"
+				/>
+
+				<!--
+				Previous artwork, kept for reuse: a little "milky matcha" camo landscape.
+				To bring it back, swap the <img> above for this <svg> (hero.scss already styles both).
+
 				<svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" focusable="false">
 					<rect class="fill-cream" width="400" height="400" />
 					<path
@@ -83,6 +100,7 @@
 						d="M232 364C236 354 252 350 262 356S278 358 280 368 270 382 260 380 240 384 234 376 228 372 232 364Z"
 					/>
 				</svg>
+				-->
 			</div>
 		</div>
 	</div>
