@@ -4,14 +4,12 @@
 			<p class="eyebrow">03 · Projects</p>
 			<h2 id="projects-title" class="section-title">Things I’ve built</h2>
 			<p class="section-lead">
-				A few favourite side projects, built outside of work out of pure curiosity: from
-				microservices to graph algorithms.
+				A few side projects born from curiosity, random ideas, and the urge to build something just for the fun of it...
 			</p>
 		</header>
 
 		<ul class="projects__grid">
 			@for (project of projects; track project.name; let i = $index) {
-				<!-- Badge colour steps from light to dark sage across the cards. -->
 				<li class="card reveal" [attr.data-tone]="i % 4">
 					<div class="card__top">
 						<span class="card__icon"><app-icon [name]="project.icon" /></span>

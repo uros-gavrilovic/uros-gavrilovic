@@ -6,6 +6,7 @@ import { Contact } from './sections/contact/contact';
 import { Hero } from './sections/hero/hero';
 import { Projects } from './sections/projects/projects';
 import { Stack } from './sections/stack/stack';
+import { syncSectionWithUrl } from './shared/section-url/section-url';
 import { Wave } from './shared/wave/wave';
 
 @Component({
@@ -14,4 +15,8 @@ import { Wave } from './shared/wave/wave';
 	imports: [Header, Hero, About, Stack, Projects, Contact, Footer, Wave],
 	templateUrl: './app.html',
 })
-export class App {}
+export class App {
+	constructor() {
+		syncSectionWithUrl();
+	}
+}

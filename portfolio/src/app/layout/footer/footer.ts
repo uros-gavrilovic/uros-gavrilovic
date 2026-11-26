@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PROFILE } from '../../data/portfolio';
 import { Icon } from '../../shared/icon/icon';
 
 @Component({
@@ -10,6 +9,5 @@ import { Icon } from '../../shared/icon/icon';
 	styleUrl: './footer.scss',
 })
 export class Footer {
-	protected readonly profile = PROFILE;
 	protected readonly year = new Date().getFullYear();
 }

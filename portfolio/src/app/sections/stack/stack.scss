@@ -13,7 +13,12 @@
 	columns: 3 18rem;
 }
 
+// Title and skill count share the first row; the chips fill the second.
 .group {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: baseline;
+	gap: 1rem;
 	margin-bottom: 1.25rem;
 	padding: 1.5rem;
 	border: 1px solid rgb(255 255 255 / 0.5);
@@ -21,31 +26,34 @@
 	background: rgb(243 240 234 / 0.75);
 	box-shadow: 0 1px 2px rgb(35 38 29 / 0.05);
 	break-inside: avoid;
+	counter-reset: skills;
+
+	// The count is a CSS counter over the chips, so it stays right as skills are added or
+	// removed in the HTML. It's hidden from screen readers, which announce the list's length.
+	&::after {
+		content: counter(skills);
+		content: counter(skills) / '';
+		grid-area: 1 / 2;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		line-height: 1.1;
+		color: var(--ink-muted);
+	}
 }
 
 .group__title {
-	display: flex;
-	align-items: baseline;
-	justify-content: space-between;
-	margin-bottom: 1rem;
 	font-size: 1.25rem;
 }
 
-.group__count {
-	font-family: var(--font-body);
-	font-size: 0.8125rem;
-	font-weight: 600;
-	letter-spacing: 0;
-	color: var(--ink-muted);
-}
-
 .chips {
+	grid-column: 1 / -1;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem;
 }
 
 .chip {
+	counter-increment: skills;
 	padding: 0.35rem 0.8rem;
 	border-radius: 999px;
 	background: var(--sage-100);

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PROJECTS } from '../../data/portfolio';
+import { PROJECTS } from '../../data/projects';
 import { Icon } from '../../shared/icon/icon';
 
 @Component({

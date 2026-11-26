@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { STACK } from '../../data/portfolio';
 
 @Component({
 	selector: 'app-stack',
@@ -7,6 +6,4 @@ import { STACK } from '../../data/portfolio';
 	templateUrl: './stack.html',
 	styleUrl: './stack.scss',
 })
-export class Stack {
-	protected readonly groups = STACK;
-}
+export class Stack {}

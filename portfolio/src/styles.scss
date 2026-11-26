@@ -1,6 +1,8 @@
 // Self-hosted variable fonts: Fraunces (with its "soft" axis) for headings, DM Sans for text.
 @use '@fontsource-variable/fraunces/soft';
 @use '@fontsource-variable/dm-sans';
+// Base styles Lenis needs for its smooth scrolling (see shared/smooth-scroll).
+@use 'lenis/dist/lenis.css';
 
 // Milky matcha palette, light to dark. The page gets darker as you scroll down it.
 :root {

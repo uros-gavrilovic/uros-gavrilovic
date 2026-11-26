@@ -18,10 +18,6 @@ export type IconName =
 
 const BRAND_ICONS: ReadonlySet<IconName> = new Set<IconName>(['github', 'linkedin']);
 
-/**
- * Inline SVG icons, sized to the surrounding font size and coloured with `currentColor`.
- * Outline icons follow Feather/Lucide (MIT/ISC); brand marks are from Simple Icons (CC0).
- */
 @Component({
 	selector: 'app-icon',
 	changeDetection: ChangeDetectionStrategy.OnPush,

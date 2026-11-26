@@ -1,6 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
-import { PROJECTS, STACK } from './data/portfolio';
+import { PROJECTS } from './data/projects';
+
+import { SOCIAL_LINKS } from './data/social';
 
 describe('App', () => {
 	beforeEach(async () => {
@@ -38,9 +40,9 @@ describe('App', () => {
 		}
 	});
 
-	it('should render every project and skill group from the data file', async () => {
+	it('should render every project and social link from the data file', async () => {
 		const page = await render();
 		expect(page.querySelectorAll('#projects .card').length).toBe(PROJECTS.length);
-		expect(page.querySelectorAll('#stack .group').length).toBe(STACK.length);
+		expect(page.querySelectorAll('.hero__social a').length).toBe(SOCIAL_LINKS.length);
 	});
 });

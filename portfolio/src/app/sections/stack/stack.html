@@ -5,24 +5,84 @@
 			<h2 id="stack-title" class="section-title">Tools I build with</h2>
 			<p class="section-lead">
 				From back-end services and message queues to web and mobile front ends: the languages,
-				frameworks and tools I reach for most.
+				frameworks and tools I reach for the most. But when the project calls for it, I'm happy to
+				learn new things!
 			</p>
 		</header>
 
 		<div class="stack__grid">
-			@for (group of groups; track group.title) {
-				<article class="group reveal">
-					<h3 class="group__title">
-						{{ group.title }}
-						<span class="group__count">{{ group.skills.length }}</span>
-					</h3>
-					<ul class="chips">
-						@for (skill of group.skills; track skill) {
-							<li class="chip">{{ skill }}</li>
-						}
-					</ul>
-				</article>
-			}
+			<article class="group reveal">
+				<h3 class="group__title">Languages</h3>
+				<ul class="chips">
+					<li class="chip">Java</li>
+					<li class="chip">JavaScript / TypeScript</li>
+					<li class="chip">Clojure</li>
+				</ul>
+			</article>
+
+			<article class="group reveal">
+				<h3 class="group__title">Frontend</h3>
+				<ul class="chips">
+					<li class="chip">Angular</li>
+					<li class="chip">React</li>
+					<li class="chip">React Native</li>
+					<li class="chip">Redux</li>
+					<li class="chip">PWA</li>
+				</ul>
+			</article>
+
+			<article class="group reveal">
+				<h3 class="group__title">Backend</h3>
+				<ul class="chips">
+					<li class="chip">Spring Boot</li>
+					<li class="chip">Spring Cloud Gateway</li>
+					<li class="chip">Hibernate</li>
+					<li class="chip">jOOQ</li>
+					<li class="chip">Alfresco</li>
+					<li class="chip">Thymeleaf</li>
+					<li class="chip">WordPress</li>
+				</ul>
+			</article>
+
+			<article class="group reveal">
+				<h3 class="group__title">Architecture</h3>
+				<ul class="chips">
+					<li class="chip">Microservices</li>
+					<li class="chip">Apache Kafka</li>
+					<li class="chip">JWT</li>
+					<li class="chip">REST APIs</li>
+				</ul>
+			</article>
+
+			<article class="group reveal">
+				<h3 class="group__title">Databases</h3>
+				<ul class="chips">
+					<li class="chip">PostgreSQL</li>
+					<li class="chip">SQLite</li>
+					<li class="chip">Neo4j</li>
+					<li class="chip">Flyway</li>
+					<li class="chip">Liquibase</li>
+				</ul>
+			</article>
+
+			<article class="group reveal">
+				<h3 class="group__title">Testing</h3>
+				<ul class="chips">
+					<li class="chip">JUnit</li>
+					<li class="chip">Mockito</li>
+				</ul>
+			</article>
+
+			<article class="group reveal">
+				<h3 class="group__title">DevOps</h3>
+				<ul class="chips">
+					<li class="chip">Git</li>
+					<li class="chip">Docker</li>
+					<li class="chip">Azure</li>
+					<li class="chip">Linux</li>
+					<li class="chip">Jira</li>
+				</ul>
+			</article>
 		</div>
 	</div>
 </section>

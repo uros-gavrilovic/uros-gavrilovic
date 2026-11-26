@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PROFILE, SOCIAL_LINKS } from '../../data/portfolio';
 import { Icon } from '../../shared/icon/icon';
+import { SOCIAL_LINKS } from '../../data/social';
 
 @Component({
 	selector: 'app-hero',
@@ -10,6 +10,5 @@ import { Icon } from '../../shared/icon/icon';
 	styleUrl: './hero.scss',
 })
 export class Hero {
-	protected readonly profile = PROFILE;
 	protected readonly socials = SOCIAL_LINKS;
 }

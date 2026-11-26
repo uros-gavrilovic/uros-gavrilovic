@@ -1,23 +1,16 @@
 <header class="header">
 	<div class="container header__inner">
-		<a
-			class="brand"
-			href="#top"
-			aria-label="{{ profile.firstName }} {{ profile.lastName }}, back to top"
-		>
-			<span class="brand__mark" aria-hidden="true">{{ initials }}</span>
-			<span class="brand__name" aria-hidden="true"
-				>{{ profile.firstName }} {{ profile.lastName }}</span
-			>
+		<a class="brand" href="#top" aria-label="Uroš Gavrilović, back to top">
+			<span class="brand__mark" aria-hidden="true">UG</span>
+			<span class="brand__name" aria-hidden="true">Uroš Gavrilović</span>
 		</a>
 
 		<nav aria-label="Main">
 			<ul class="nav">
-				@for (link of links; track link.href) {
-					<li>
-						<a class="nav__link" [href]="link.href">{{ link.label }}</a>
-					</li>
-				}
+				<li><a class="nav__link" href="#about">About</a></li>
+				<li><a class="nav__link" href="#stack">Stack</a></li>
+				<li><a class="nav__link" href="#projects">Projects</a></li>
+				<li><a class="nav__link" href="#contact">Contact</a></li>
 			</ul>
 		</nav>
 	</div>

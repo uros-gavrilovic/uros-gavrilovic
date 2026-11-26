@@ -5,31 +5,64 @@
 			<h2 id="about-title" class="section-title">
 				Detail-driven developer <span class="accent">who loves to tinker.</span>
 			</h2>
-			@for (paragraph of profile.about; track $index) {
-				<p class="about__text">{{ paragraph }}</p>
-			}
+			<p class="about__text">
+				I’m an Information Systems Engineering graduate from the Faculty of Organizational Sciences
+				(FON), University of Belgrade -  also where I'm currently completing a Master’s degree in Software
+				Engineering &amp; AI.
+			</p>
+			<p class="about__text">
+				Ambitious, detail-oriented and highly organized, I’m passionate about software development
+				and technology. My focus currently is Java &amp; Spring, Angular &amp; React, microservices and
+				document management systems, but I'm always open to new opportunities and chances to learn and
+				explore new things.
+			</p>
+			<p class="about__text">
+				Outside of work whenever the coding bug bites I turn my ideas into small side projects I love
+				tinkering with, and I help run the <b>BelgradeJS</b> developer community as a co-organizer and
+				event coordinator.
+			</p>
 		</div>
 
 		<aside class="about__card reveal" aria-labelledby="glance-title">
 			<h3 id="glance-title" class="about__card-title">At a glance</h3>
 			<ul class="facts">
-				@for (fact of profile.facts; track fact.label) {
-					<li class="fact">
-						<span class="fact__icon"><app-icon [name]="fact.icon" /></span>
-						<div>
-							<p class="fact__label">{{ fact.label }}</p>
-							<p class="fact__value">
-								@if (fact.href) {
-									<a [href]="fact.href" target="_blank" rel="noopener noreferrer">{{
-										fact.value
-									}}</a>
-								} @else {
-									{{ fact.value }}
-								}
-							</p>
-						</div>
-					</li>
-				}
+				<li class="fact">
+					<span class="fact__icon"><app-icon name="graduation-cap" /></span>
+					<div>
+						<p class="fact__label">Education</p>
+						<p class="fact__value">
+							B.Sc. Information Technology &amp; Systems, FON, University of Belgrade
+						</p>
+					</div>
+				</li>
+				<li class="fact">
+					<span class="fact__icon"><app-icon name="book-open" /></span>
+					<div>
+						<p class="fact__label">Currently</p>
+						<p class="fact__value">M.Sc. Software Engineering &amp; AI (in progress)</p>
+					</div>
+				</li>
+				<li class="fact">
+					<span class="fact__icon"><app-icon name="users" /></span>
+					<div>
+						<p class="fact__label">Community & Volunteering</p>
+						<p class="fact__value">
+							<a
+								href="https://www.meetup.com/belgrade-js/"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Co-organizer &amp; Event coordinator at BelgradeJS</a
+							>
+						</p>
+					</div>
+				</li>
+				<li class="fact">
+					<span class="fact__icon"><app-icon name="code" /></span>
+					<div>
+						<p class="fact__label">Focus</p>
+						<p class="fact__value">Java &amp; Spring, Angular &amp; React, microservices</p>
+					</div>
+				</li>
 			</ul>
 		</aside>
 	</div>

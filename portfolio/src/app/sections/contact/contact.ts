@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PROFILE } from '../../data/portfolio';
 import { Icon } from '../../shared/icon/icon';
 
 @Component({
@@ -9,6 +8,4 @@ import { Icon } from '../../shared/icon/icon';
 	templateUrl: './contact.html',
 	styleUrl: './contact.scss',
 })
-export class Contact {
-	protected readonly profile = PROFILE;
-}
+export class Contact {}
