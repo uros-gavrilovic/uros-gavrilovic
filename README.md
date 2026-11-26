@@ -1,4 +1,5 @@
 <h1 align="center">Uroš Gavrilović</h1>
+<h3 align="center"><a href="https://uros-gavrilovic.dev/">uros-gavrilovic.dev</a></h3>
 
 <p align="center">
   <b>Full-Stack Software Developer · Co-Organizer & Event Coordinator @ <a href="https://www.meetup.com/belgrade-js/">BelgradeJS</a></b><br>
@@ -94,6 +95,7 @@
 </table>
 
 <p align="center">
+  <a href="https://uros-gavrilovic.dev"><img src="https://img.shields.io/badge/Portfolio-00000?style=flat-square" alt="Portfolio"></a>
   <a href="https://www.linkedin.com/in/gavrilovic-uros"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
   <a href="mailto:urosgavrilovic77@gmail.com"><img src="https://img.shields.io/badge/Email-1f2328?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
 </p>
