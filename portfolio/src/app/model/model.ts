@@ -11,6 +11,7 @@ export interface Project {
 	longDescription: readonly string[];
 	tech: readonly string[];
 	icon: IconName;
+	cover?: string;
 	href?: string;
 	gallery?: readonly GalleryImage[];
 }

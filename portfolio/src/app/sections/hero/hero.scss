@@ -78,10 +78,19 @@
 }
 
 .hero__actions {
+	container-type: inline-size;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.75rem;
 	margin-top: 2.25rem;
+}
+
+// Below 22rem no two buttons fit side by side, so each gets a row of its own: fill it.
+@container (max-width: 22rem) {
+	.hero__actions .btn {
+		width: 100%;
+		justify-content: center;
+	}
 }
 
 .hero__social {

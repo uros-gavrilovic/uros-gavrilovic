@@ -17,6 +17,7 @@ export const PROJECTS: readonly Project[] = [
 		],
 		tech: ['Spring Boot', 'Spring Cloud Gateway', 'Kafka', 'Docker'],
 		icon: 'calendar',
+		cover: 'images/project/faculty-flow/cover.webp',
 		href: 'https://github.com/uros-gavrilovic/faculty-flow',
 		gallery: [
 			{ src: 'images/project/faculty-flow/calendar.png', alt: 'Scheduler' },
@@ -36,6 +37,7 @@ export const PROJECTS: readonly Project[] = [
 		],
 		tech: ['Clojure', 'Neo4j', 'Cypher', 'Docker'],
 		icon: 'compass',
+		cover: 'images/project/wajfinder/cover.webp',
 		href: 'https://github.com/uros-gavrilovic/wajfinder',
 		gallery: [
 			{ src: 'images/project/wajfinder/graph.png', alt: 'Graph' },
@@ -55,6 +57,7 @@ export const PROJECTS: readonly Project[] = [
 		],
 		tech: ['Spring', 'Thymeleaf', 'wkhtmltopdf', 'Postman'],
 		icon: 'file-text',
+		cover: 'images/project/templatron/cover.webp',
 		gallery: [
 			{ src: 'images/project/templatron/showcase.gif', alt: 'Showcase of template generation' }
 		]

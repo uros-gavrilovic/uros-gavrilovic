@@ -9,10 +9,42 @@
 }
 
 .contact__camo {
-	width: 100%;
-	height: clamp(9rem, 24vw, 24rem);
+	--h: clamp(9rem, 24vw, 24rem);
+	--drift: 180s;
+	position: relative;
+	height: var(--h);
 	margin-bottom: -1px;
+	overflow: hidden;
 	background: var(--sage-300);
+}
+
+.camo__layer {
+	position: absolute;
+	right: 0;
+	// Past the clipped bottom edge, so the last pixel row is solid forest, not blended edges.
+	bottom: -1px;
+	width: max(200%, var(--h) * 9);
+	max-width: none;
+	aspect-ratio: 9;
+	animation: camo-drift var(--loop) linear infinite;
+}
+
+.camo__layer--back {
+	--loop: calc(var(--drift) * 2);
+}
+
+.camo__layer--middle {
+	--loop: calc(var(--drift) * 1.5);
+}
+
+.camo__layer--front {
+	--loop: var(--drift);
+}
+
+@keyframes camo-drift {
+	to {
+		transform: translateX(50%);
+	}
 }
 
 .contact__inner {

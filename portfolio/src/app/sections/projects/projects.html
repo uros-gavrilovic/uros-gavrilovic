@@ -12,12 +12,22 @@
 		<ul class="projects__grid">
 			@for (project of projects; track project.name; let i = $index) {
 				<li class="card reveal" [attr.data-tone]="i % 4">
-					<div class="card__top">
-						<span class="card__icon"><app-icon [name]="project.icon" /></span>
-						<span class="card__index" aria-hidden="true">{{
-							(i + 1).toString().padStart(2, '0')
-						}}</span>
+					<div class="card__cover">
+						<!-- Without a cover of its own, a card takes one of the three placeholder waves. -->
+						<img
+							[src]="
+								project.cover ?? 'images/project/placeholder/placeholder-' + ((i % 3) + 1) + '.svg'
+							"
+							alt=""
+							loading="lazy"
+							decoding="async"
+						/>
+						<span class="card__arrow" aria-hidden="true"><app-icon name="arrow-right" /></span>
 					</div>
+
+					<span class="card__notch">
+						<span class="card__icon"><app-icon [name]="project.icon" /></span>
+					</span>
 
 					<h3 class="card__title">
 						<button type="button" class="card__open" aria-haspopup="dialog" (click)="open(i)">
@@ -39,6 +49,19 @@
 				</li>
 			}
 		</ul>
+
+		<div class="projects__more reveal">
+			<a
+				class="btn btn-primary"
+				href="https://github.com/uros-gavrilovic"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<app-icon name="github" />
+				More projects on GitHub
+				<app-icon class="shift" name="arrow-up-right" />
+			</a>
+		</div>
 	</div>
 
 	<!-- PrimeNG's dialog code loads once the page is idle, keeping it out of the first load. -->
