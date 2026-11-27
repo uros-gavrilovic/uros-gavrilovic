@@ -13,12 +13,9 @@
 			@for (project of projects; track project.name; let i = $index) {
 				<li class="card reveal" [attr.data-tone]="i % 4">
 					<div class="card__cover">
-						<!-- Without a cover of its own, a card takes one of the three placeholder waves. -->
 						<img
-							[src]="
-								project.cover ?? 'images/project/placeholder/placeholder-' + ((i % 3) + 1) + '.svg'
-							"
-							alt=""
+							[src]="project.cover ?? 'images/project/placeholder/placeholder-' + ((i % 3) + 1) + '.svg'"
+							[alt]="'project-placeholder-' + i"
 							loading="lazy"
 							decoding="async"
 						/>
@@ -51,12 +48,7 @@
 		</ul>
 
 		<div class="projects__more reveal">
-			<a
-				class="btn btn-primary"
-				href="https://github.com/uros-gavrilovic"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
+			<a class="btn btn-primary" [href]="profile.github" target="_blank" rel="noopener noreferrer">
 				<app-icon name="github" />
 				More projects on GitHub
 				<app-icon class="shift" name="arrow-up-right" />

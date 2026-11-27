@@ -1,0 +1,29 @@
+<div class="post">
+	@let wave = loaded() ? 'none' : 'wave';
+	<div #skeleton class="skeleton" aria-hidden="true">
+		@defer (on idle) {
+			<p-skeleton shape="circle" size="3rem" [animation]="wave" />
+			<p-skeleton class="skeleton__name" width="55%" height="0.75rem" [animation]="wave" />
+			<p-skeleton class="skeleton__line" height="0.75rem" [animation]="wave" />
+			<p-skeleton class="skeleton__line" height="0.75rem" [animation]="wave" />
+			<p-skeleton
+				class="skeleton__media"
+				width="auto"
+				height="100%"
+				borderRadius="0"
+				[animation]="wave"
+			/>
+			<p-skeleton class="skeleton__line" width="40%" height="0.75rem" [animation]="wave" />
+		}
+	</div>
+
+	@defer (on viewport({ trigger: skeleton, rootMargin: '100%' })) {
+		<iframe
+			#frame
+			[src]="src()"
+			title="LinkedIn post"
+			allowfullscreen
+			(load)="loaded.set(!frame.contentDocument)"
+		></iframe>
+	}
+</div>

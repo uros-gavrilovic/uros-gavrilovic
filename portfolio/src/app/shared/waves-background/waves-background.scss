@@ -1,0 +1,39 @@
+:host {
+	display: block;
+	--h: clamp(9rem, 24vw, 24rem);
+	--drift: 180s;
+	position: relative;
+	height: var(--h);
+	margin-bottom: -1px;
+	overflow: hidden;
+	background: var(--sage-300);
+}
+
+.layer {
+	position: absolute;
+	right: 0;
+	// Past the clipped bottom edge, so the last pixel row is solid forest, not blended edges.
+	bottom: -1px;
+	width: max(200%, var(--h) * 9);
+	max-width: none;
+	aspect-ratio: 9;
+	animation: drift var(--loop) linear infinite;
+}
+
+.layer--back {
+	--loop: calc(var(--drift) * 2);
+}
+
+.layer--middle {
+	--loop: calc(var(--drift) * 1.5);
+}
+
+.layer--front {
+	--loop: var(--drift);
+}
+
+@keyframes drift {
+	to {
+		transform: translateX(50%);
+	}
+}

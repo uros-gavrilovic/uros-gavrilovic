@@ -1,6 +1,7 @@
 import { definePreset } from '@primeuix/themes';
 import base from '@primeuix/themes/aura/base';
 import dialog from '@primeuix/themes/aura/dialog';
+import skeleton from '@primeuix/themes/aura/skeleton';
 
 /** Space around the dialog's edges, and between its content and the footer. */
 const dialogPadding = 'clamp(1.25rem, 3vw, 1.75rem)';
@@ -13,7 +14,7 @@ const dialogPadding = 'clamp(1.25rem, 3vw, 1.75rem)';
  * `@primeuix/themes/aura/<component>` to `components`, or it will render unstyled.
  */
 export const MatchaPreset = definePreset(
-	{ ...base, components: { dialog } },
+	{ ...base, components: { dialog, skeleton } },
 	{
 		semantic: {
 			mask: {
@@ -43,6 +44,12 @@ export const MatchaPreset = definePreset(
 				footer: {
 					padding: `0 ${dialogPadding} ${dialogPadding}`,
 					gap: '0.75rem',
+				},
+			},
+			skeleton: {
+				root: {
+					background: 'var(--sage-100)',
+					animationBackground: 'rgb(255 255 255 / 0.6)',
 				},
 			},
 		},

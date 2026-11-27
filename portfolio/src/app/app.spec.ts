@@ -2,7 +2,7 @@ import { ComponentFixture, DeferBlockState, TestBed } from '@angular/core/testin
 import { App } from './app';
 import { PROJECTS } from './data/projects';
 
-import { SOCIAL_LINKS } from './data/social';
+import { MAILTO, PROFILE, SOCIAL_LINKS } from './data/social';
 
 describe('App', () => {
 	beforeEach(async () => {
@@ -54,6 +54,17 @@ describe('App', () => {
 		const page = await render();
 		expect(page.querySelectorAll('#projects .card').length).toBe(PROJECTS.length);
 		expect(page.querySelectorAll('.hero__social a').length).toBe(SOCIAL_LINKS.length);
+	});
+
+	it('should point every profile link at the address in the data file', async () => {
+		const page = await render();
+		const profileLinks = Array.from(page.querySelectorAll('a'))
+			.map((a) => a.getAttribute('href')!)
+			.filter((href) => /github\.com|linkedin\.com|^mailto:/.test(href));
+		expect(profileLinks.length).toBeGreaterThan(0);
+		for (const href of profileLinks) {
+			expect([PROFILE.github, PROFILE.linkedin, MAILTO]).toContain(href);
+		}
 	});
 
 	it("should open a project's details from its card", async () => {

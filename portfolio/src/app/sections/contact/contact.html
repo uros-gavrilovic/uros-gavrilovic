@@ -1,82 +1,5 @@
 <section id="contact" class="contact" aria-labelledby="contact-title">
-	<!--
-	Camo band: the light sage of the project section breaks up into matcha, olive and forest.
-	Each layer is a tile drawn twice, side by side, and drifts right by one tile on a loop: its
-	right edge carries on into its left, and the outlines reach 1 past both edges to overlap.
-	-->
-	<div class="contact__camo" aria-hidden="true">
-		<svg
-			class="camo__layer camo__layer--back"
-			viewBox="-1440 0 2880 320"
-			preserveAspectRatio="none"
-			focusable="false"
-		>
-			@for (x of [0, -1440]; track x) {
-				<g [attr.transform]="'translate(' + x + ')'">
-					<path
-						class="fill-matcha"
-						d="M-1 91.75L0 92C56 106 92 112 128 136S214 166 252 140 300 72 352 70 430 112 470 130 566 150 600 124 650 64 704 62 790 96 822 122 900 170 948 152 1004 96 1052 86 1140 104 1176 128 1262 150 1300 120 1384 78 1440 92L1441 92.25V320H-1Z"
-					/>
-					<path
-						class="fill-sage-300"
-						d="M520 186C530 166 566 160 588 174S640 182 648 198 628 230 604 224 556 236 536 226 512 202 520 186Z"
-					/>
-					<path
-						class="fill-sage-200"
-						d="M160 182C166 170 188 166 200 174S222 178 224 190 210 206 196 202 168 206 162 198 156 190 160 182Z"
-					/>
-					<path
-						class="fill-olive"
-						d="M300 140C306 122 336 116 352 128S392 136 396 152 374 176 356 170 320 176 306 166 296 150 300 140Z"
-					/>
-					<path
-						class="fill-olive"
-						d="M850 118C858 100 890 96 906 110S944 118 948 134 928 158 910 152 872 158 858 148 846 128 850 118Z"
-					/>
-				</g>
-			}
-		</svg>
-
-		<svg
-			class="camo__layer camo__layer--middle"
-			viewBox="-1440 0 2880 320"
-			preserveAspectRatio="none"
-			focusable="false"
-		>
-			@for (x of [0, -1440]; track x) {
-				<path
-					class="fill-olive"
-					[attr.transform]="'translate(' + x + ')'"
-					d="M-1 186.35L0 186C24 177.6 70 170 112 176S162 222 204 232 280 208 320 196 392 206 420 230 500 262 540 244 590 190 636 184 704 214 744 226 830 216 862 196 936 170 972 190 1020 240 1068 242 1130 206 1168 196 1240 212 1270 226 1340 236 1370 214 1420 193 1440 186L1441 185.65V320H-1Z"
-				/>
-			}
-		</svg>
-
-		<svg
-			class="camo__layer camo__layer--front"
-			viewBox="-1440 0 2880 320"
-			preserveAspectRatio="none"
-			focusable="false"
-		>
-			@for (x of [0, -1440]; track x) {
-				<g [attr.transform]="'translate(' + x + ')'">
-					<path
-						class="fill-forest"
-						d="M-1 118L0 118C50 118 150 276 190 282S262 262 300 258 360 280 396 288 470 276 506 270 566 286 604 290 676 266 712 262 772 282 810 286 880 268 916 262 980 276 1016 282 1082 270 1110 262C1130 256 1146 226 1160 196S1206 140 1246 142 1300 170 1330 164 1395 118 1440 118L1441 118V320H-1Z"
-					/>
-					<path class="fill-deep" d="M14 250C22 236 48 232 62 244S70 276 52 280 6 268 14 250Z" />
-					<path
-						class="fill-deep"
-						d="M1358 188C1366 172 1392 166 1410 174S1436 190 1432 206 1412 224 1392 222 1350 208 1358 188Z"
-					/>
-					<path
-						class="fill-cream"
-						d="M1222 212C1230 190 1262 184 1278 198S1318 204 1326 222 1312 254 1292 248 1252 260 1234 250 1214 226 1222 212Z"
-					/>
-				</g>
-			}
-		</svg>
-	</div>
+	<app-waves-background />
 
 	<div class="container contact__inner reveal">
 		<p class="eyebrow">04 · Contact</p>
@@ -87,19 +10,20 @@
 		</p>
 
 		<div class="contact__actions">
-			<a
-				class="btn btn-light"
-				href="https://www.linkedin.com/in/gavrilovic-uros"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
+			<a class="btn btn-light" [href]="profile.linkedin" target="_blank" rel="noopener noreferrer">
 				<app-icon name="linkedin" />
 				Connect on LinkedIn
 			</a>
-			<a class="btn btn-outline-light" href="mailto:urosgavrilovic77@gmail.com">
+			<a class="btn btn-outline-light" [href]="mailto">
 				<app-icon name="mail" />
-				urosgavrilovic77@gmail.com
+				{{ profile.email }}
 			</a>
 		</div>
 	</div>
+
+	<ul class="container contact__posts" aria-label="Recent LinkedIn posts">
+		@for (post of linkedinPosts; track post) {
+			<li class="reveal"><app-linkedin-post [urn]="post" /></li>
+		}
+	</ul>
 </section>
